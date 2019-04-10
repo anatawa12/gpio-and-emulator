@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>GPIO</title>
+<table>
+    <thead>
+    <tr>
+        <th>name
+        <th>status
+        <th>on/off
+        <th>on/off
+        <th>status
+        <th>name
+    <tbody id='main'></tbody>
+</table>
+
+<script>
+    var elements = [
+        '3v3', '5v',
+        '2', '5v',
+        '3', 'gnd',
+        '4', '14',
+        'gnd', '15',
+        '17', '18',
+        '27', 'gnd',
+        '22', '23',
+        '3v3', '24',
+        '10', 'gnd',
+        '9', '25',
+        '11', '8',
+        'gnd', '7',
+        'id_sd', 'id_sc',
+        '5', 'gnd',
+        '6', '12',
+        '13', 'gnd',
+        '19', '16',
+        '26', '20',
+        'gnd', '21',
+    ];
+    var table = document.getElementById('main');
+    let tr = document.createElement('tr');
+    const gpiosInternal = [];
+
+    for (const i in elements) {
+        const element = elements[i];
+        const ch = Number(element);
+        const name = document.createElement('td');
+        const status = document.createElement('td');
+        const checkD = document.createElement('td');
+        const check = document.createElement('input');
+        check.type = 'checkbox';
+        if (Number.isInteger(ch)) {
+            name.textContent = `GPIO${element}`;
+            status.textContent = `none`;
+            check.onchange = () => {
+                update(ch, check.checked);
+            };
+            gpiosInternal[ch] = [status, check];
+        } else {
+            name.textContent = element.toUpperCase();
+            status.textContent = `N/A`;
+            check.disabled = true;
+        }
+        checkD.appendChild(check);
+        if (i % 2 === 0) {
+            tr.appendChild(name);
+            tr.appendChild(status);
+            tr.appendChild(checkD);
+        } else {
+            tr.appendChild(checkD);
+            tr.appendChild(status);
+            tr.appendChild(name);
+            table.appendChild(tr);
+            tr = document.createElement('tr');
+        }
+    }
+
+    async function update1() {
+        const gpiosGot = await gpios();
+        for (const i in gpiosGot) {
+            if (!gpiosGot[i]) continue;
+            const [status, checkBox] = gpiosInternal[i];
+            switch (gpiosGot[i]) {
+                case "high":
+                    status.textContent = 'out';
+                    checkBox.disabled = true;
+                    checkBox.checked = true;
+                    break;
+                case "low":
+                    status.textContent = 'out';
+                    checkBox.disabled = true;
+                    checkBox.checked = false;
+                    break;
+                case "non":
+                    status.textContent = 'none';
+                    checkBox.disabled = false;
+                    checkBox.checked = true;
+                    break;
+                case "none":
+                    status.textContent = 'none';
+                    checkBox.disabled = false;
+                    checkBox.checked = false;
+                    break;
+                case "on":
+                    status.textContent = 'in';
+                    checkBox.disabled = false;
+                    checkBox.checked = true;
+                    break;
+                case "off":
+                    status.textContent = 'in';
+                    checkBox.disabled = false;
+                    checkBox.checked = false;
+                    break;
+            }
+        }
+    }
+
+</script>
