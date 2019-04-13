@@ -1,11 +1,16 @@
 {
   "name": "gpio-and-emulator",
   "version": "0.0.1",
-  "description": "",
+  "description": "Control Raspberry Pi GPIO pins with node.js or emulate Raspberry Pi GPIO.",
   "main": "index.js",
   "scripts": {},
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "gpio",
+    "emulator",
+    "raspberry",
+    "pi"
+  ],
+  "author": "anatawa12",
   "license": "ISC",
   "dependencies": {
     "@types/events": "^3.0.0",
@@ -15,5 +20,6 @@
     "gpio-and-emulator": "0.0.1"
   },
   "private": true,
-  "types": "./gpio-and-emulator.d.ts"
+  "types": "./gpio-and-emulator.d.ts",
+  "url": "https://github.com/anatawa12/gpio-and-emulator/issues"
 }
