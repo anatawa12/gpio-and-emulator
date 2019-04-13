@@ -299,14 +299,16 @@ var bootstrap = function () { return __awaiter(_this, void 0, void 0, function (
                 return [4 /*yield*/, app.load("emulator.html")];
             case 4:
                 _a.sent();
-                process.on("beforeExit", function () { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                    switch (_a.label) {
-                        case 0: return [4 /*yield*/, app.exit()];
-                        case 1:
-                            _a.sent();
-                            return [2 /*return*/];
-                    }
-                }); }); });
+                process.on("beforeExit", function () { return __awaiter(_this, void 0, void 0, function () {
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, app.exit()];
+                            case 1:
+                                _a.sent();
+                                return [2 /*return*/];
+                        }
+                    });
+                }); });
                 isInited = true;
                 for (_i = 0, waitForInit_1 = waitForInit; _i < waitForInit_1.length; _i++) {
                     waitForInitElement = waitForInit_1[_i];

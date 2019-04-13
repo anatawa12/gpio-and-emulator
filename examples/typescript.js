@@ -22,7 +22,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
                 resolve(result.value);
             }).then(fulfilled, rejected);
         }
-
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
@@ -46,7 +45,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
             return step([n, v]);
         };
     }
-
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
@@ -105,29 +103,27 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", {value: true});
-var gpio_and_emulator_1 = require("../gpio-and-emulator");
+var gpio_and_emulator_1 = require("gpio-and-emulator");
 (function () {
     return __awaiter(_this, void 0, void 0, function () {
-        var inch, ch, wait, makeOn, makeOff;
+        var inch, wait, makeOn, makeOff;
         var _this = this;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     inch = Number(process.argv[2] || 2);
-                    if (2 <= inch && inch < 28) {
-                    } else
+                    if (!gpio_and_emulator_1.isBCMChannel(inch))
                         return [2 /*return*/];
-                    ch = inch;
-                    return [4 /*yield*/, gpio_and_emulator_1.selected.setup(ch, "out")];
+                    return [4 /*yield*/, gpio_and_emulator_1.selected.setup(inch, "out")];
                 case 1:
                     _a.sent();
-                    wait = 2000;
+                    wait = 1000;
                     makeOn = function () {
                         return __awaiter(_this, void 0, void 0, function () {
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
-                                        return [4 /*yield*/, gpio_and_emulator_1.selected.write(ch, true)];
+                                        return [4 /*yield*/, gpio_and_emulator_1.selected.write(inch, true)];
                                     case 1:
                                         _a.sent();
                                         setTimeout(makeOff, wait);
@@ -141,7 +137,7 @@ var gpio_and_emulator_1 = require("../gpio-and-emulator");
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
-                                        return [4 /*yield*/, gpio_and_emulator_1.selected.write(ch, false)];
+                                        return [4 /*yield*/, gpio_and_emulator_1.selected.write(inch, false)];
                                     case 1:
                                         _a.sent();
                                         setTimeout(makeOn, wait);
@@ -158,4 +154,4 @@ var gpio_and_emulator_1 = require("../gpio-and-emulator");
         });
     });
 })();
-//# sourceMappingURL=typescript.js.maps.map
+//# sourceMappingURL=typescript.js.map

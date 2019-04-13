@@ -52,9 +52,9 @@ var fs = require("fs");
 var events_1 = require("events");
 var Selected = /** @class */ (function (_super) {
     __extends(Selected, _super);
-    function Selected() {
+    function Selected(useEmulator) {
         var _this = _super.call(this) || this;
-        if (process.platform !== "linux") {
+        if (useEmulator || process.platform !== "linux") {
             _this.base = require('./core/emulator');
         }
         else {
