@@ -28,7 +28,7 @@ module.exports.isBCMOrRPIChannel = function (arg) {
     return true;
 };
 
-module.exports.useEmulator = process.env['USE_EMULATOR']?.toLowerCase() === 'true';
+module.exports.useEmulator = process.env['USE_EMULATOR'] && process.env['USE_EMULATOR'].toLowerCase() === 'true';
 
 Object.defineProperty(module.exports, 'selected', {
     get: lazy(() => new Selected(module.exports.useEmulator)),
