@@ -1,6 +1,6 @@
 {
   "name": "gpio-and-emulator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Control Raspberry Pi GPIO pins with node.js or emulate Raspberry Pi GPIO.",
   "main": "index.js",
   "scripts": {},
