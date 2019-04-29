@@ -51,7 +51,7 @@ declare module 'gpio-and-emulator' {
 
         input(channel: BCMChannel | RPIChannel, value: boolean, cb: ValueOrErrorCallback<boolean>): void;
 
-        destroy(cb: DoneOrErrorCallback)
+        destroy(cb: DoneOrErrorCallback): void;
 
         reset(): never
 
