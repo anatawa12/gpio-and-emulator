@@ -22,7 +22,7 @@ declare module 'gpio-and-emulator' {
         destroy(): Promise<void>
 
 
-        on(event: 'change', listener: (channel: BCMChannel, value: boolean) => void)
+        on(event: 'change', listener: (channel: BCMChannel, value: boolean) => void): this;
     }
 
     interface RpiGpio {
@@ -39,17 +39,17 @@ declare module 'gpio-and-emulator' {
         EDGE_FALLING: Edge;
         EDGE_BOTH: Edge;
 
-        setMode(mode: RpiMode): void
+        setMode(mode: RpiMode): void;
 
-        setup(channel: BCMChannel | RPIChannel, direction: Direction, edge: Edge, onSetup: DoneOrErrorCallback)
+        setup(channel: BCMChannel | RPIChannel, direction: Direction, edge: Edge, onSetup: DoneOrErrorCallback): void;
 
-        write(channel: BCMChannel | RPIChannel, value: boolean, cb: DoneOrErrorCallback)
+        write(channel: BCMChannel | RPIChannel, value: boolean, cb: DoneOrErrorCallback): void;
 
-        output(channel: BCMChannel | RPIChannel, value: boolean, cb: DoneOrErrorCallback)
+        output(channel: BCMChannel | RPIChannel, value: boolean, cb: DoneOrErrorCallback): void;
 
-        read(channel: BCMChannel | RPIChannel, value: boolean, cb: ValueOrErrorCallback<boolean>)
+        read(channel: BCMChannel | RPIChannel, value: boolean, cb: ValueOrErrorCallback<boolean>): void;
 
-        input(channel: BCMChannel | RPIChannel, value: boolean, cb: ValueOrErrorCallback<boolean>)
+        input(channel: BCMChannel | RPIChannel, value: boolean, cb: ValueOrErrorCallback<boolean>): void;
 
         destroy(cb: DoneOrErrorCallback)
 
