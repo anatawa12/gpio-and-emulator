@@ -1,13 +1,10 @@
 declare module 'gpio-and-emulator' {
-    export = GpioAndEmulator
-
     import {EventEmitter} from "events";
 
-    interface GpioAndEmulator {
-        readonly selected: Selected;
-        readonly rpiGpio: RpiGpio;
-        useEmulator: boolean;
-    }
+
+    export const selected: Selected;
+    export const rpiGpio: RpiGpio;
+    export const useEmulator: boolean;
 
     function isBCMChannel(arg: any): arg is BCMChannel;
 
