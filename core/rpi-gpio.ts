@@ -27,7 +27,7 @@ class RpiGpio implements ISimpleInternalApi {
     /**
      * @type EventEmitter
      */
-    e: GPIO
+    e = GPIO
 }
 
 module.exports = new RpiGpio();
