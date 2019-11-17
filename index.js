@@ -1,5 +1,5 @@
 const Selected = require('./selector');
-const RpiGpio = require('./rpi-gpio');
+const RpiGpio = require('./rpi-gpio-wrap');
 
 const Undefined = {};
 
