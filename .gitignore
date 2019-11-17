@@ -241,5 +241,7 @@ $RECYCLE.BIN/
 # End of https://www.gitignore.io/api/osx,linux,windows,intellij,node
 !node_modules/
 node_modules/*
-# to testing
-!node_modules/gpio-and-emulator
+*.js
+*.js.map
+!index.js
+!examples/*
