@@ -1,0 +1,7 @@
+/examples
+/.gitignore
+*.ts
+!gpio-and-emulator.d.ts
+gpio-and-emulator.i*
+tsconfig.json
+typeconfig.json
