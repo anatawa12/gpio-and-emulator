@@ -21,5 +21,8 @@
   },
   "private": true,
   "types": "./gpio-and-emulator.d.ts",
-  "url": "https://github.com/anatawa12/gpio-and-emulator/issues"
+  "url": "https://github.com/anatawa12/gpio-and-emulator/issues",
+  "devDependencies": {
+    "typescript": "^3.7.2"
+  }
 }
