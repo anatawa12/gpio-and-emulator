@@ -1,5 +1,4 @@
-import {Direction, Edge, ISimpleInternalApi} from "./ISimpleInternalApi";
-import {BCMChannel} from "../gpio-and-emulator";
+import {BCMChannel, Direction, Edge, ISimpleInternalApi} from "./ISimpleInternalApi";
 import {EventEmitter} from 'events';
 
 const carlo = require('carlo');
