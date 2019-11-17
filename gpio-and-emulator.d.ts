@@ -4,7 +4,7 @@ declare module 'gpio-and-emulator' {
 
     export const selected: Selected;
     export const rpiGpio: RpiGpio;
-    export const useEmulator: boolean;
+    export var useEmulator: boolean;
 
     function isBCMChannel(arg: any): arg is BCMChannel;
 
