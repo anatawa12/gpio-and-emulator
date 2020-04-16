@@ -1,7 +1,8 @@
 import {BCMChannel, Direction, Edge, ISimpleInternalApi} from "./ISimpleInternalApi";
 import {EventEmitter} from 'events';
+import carlo = require('carlo');
 
-const carlo = require('carlo');
+//const carlo = require('carlo');
 
 let isInited = false;
 let waitForInit: (() => void)[] = [];

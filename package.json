@@ -22,6 +22,7 @@
   "types": "./gpio-and-emulator.d.ts",
   "url": "https://github.com/anatawa12/gpio-and-emulator/issues",
   "devDependencies": {
+    "@types/carlo": "^0.9.0",
     "typescript": "^3.7.2"
   }
 }
